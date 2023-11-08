@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import getRandomData from "../utils/getRandomData";
 
 const LineChartContainer = () => {
-  const [age, setAge] = useState(null);
-  const [chartData] = useState([80, 50, 130, 200, 150, 100, 125, 90, 160]);
   const svgRef = useRef();
+  const [selectInput, setSelectInput] = useState("");
+  const [chartData, setChartData] = useState(getRandomData(9));
   useEffect(() => {
-    // setting svg
     const w = 680;
     const h = 250;
     const svg = d3
@@ -59,9 +59,15 @@ const LineChartContainer = () => {
       .selectAll(".line")
       .data([chartData])
       .join("path")
+      .attr("class", "line") // Add a class to the path for selection
       .attr("d", (d) => generateScaledline(d))
       .attr("fill", "none")
-      .attr("stroke", "green");
+      .attr("stroke", "green")
+      .exit()
+      .remove();
+
+    // Remove old paths
+    svg.selectAll(".line").exit().remove();
   }, [chartData]);
 
   return (
@@ -71,10 +77,19 @@ const LineChartContainer = () => {
         <div className="flex gap-5">
           <FormControl size="small">
             <InputLabel id="demo-simple-select-label">Manage</InputLabel>
-            <Select className="w-[150px]" labelId="demo-simple-select-label">
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+            <Select
+              className="w-[150px]"
+              labelId="demo-simple-select-label"
+              value={selectInput}
+              onChange={(e) => {
+                setSelectInput(e?.target?.value);
+                setChartData(getRandomData(9));
+                // getRandomData(e?.target?.value);
+              }}
+            >
+              <MenuItem value={"Manage"}>Manage</MenuItem>
+              {/* <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem> */}
             </Select>
           </FormControl>
           <FormControl size="small">

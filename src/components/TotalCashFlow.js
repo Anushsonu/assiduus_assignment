@@ -15,7 +15,7 @@ const TotalCashFlow = () => {
     { category: "October", v1: 20, v2: 40 },
     { category: "November", v1: 50, v2: 70 },
     { category: "December", v1: 50, v2: 70 },
-    { category: "January", v1: 50, v2: 70 },
+    { category: "January", v1: 80, v2: 70 },
   ];
   const svgRef = useRef();
 
@@ -25,7 +25,7 @@ const TotalCashFlow = () => {
     const colorV1 = "#55bc55"; // Color for v2
 
     const svg = d3.select(svgRef.current);
-    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+    const margin = { top: 20, right: 10, bottom: 30, left: 0 };
     const width = 720 - margin.left - margin.right;
     const height = 300 - margin.top - margin.bottom;
 

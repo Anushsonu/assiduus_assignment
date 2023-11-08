@@ -4,13 +4,14 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import getRandomData from "../utils/getRandomData";
 
 const BarChartContainer = () => {
   const [age, setAge] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const data = [100, 50, 70, 30, 60, 80]; // Sample data for the bars
+  const data = getRandomData(6); // Sample data for the bars
   const categories = [
     "older",
     "Jan 01-08",
@@ -24,7 +25,7 @@ const BarChartContainer = () => {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+    const margin = { top: 20, right: 10, bottom: 30, left: 0 };
     const width = 720 - margin.left - margin.right;
     const height = 300 - margin.top - margin.bottom;
 
