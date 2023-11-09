@@ -15,11 +15,11 @@ const AccountsWatchlist = () => {
   }
 
   const rows = [
-    createData("Frozen yoghurt", 159, 6.0),
-    createData("Ice cream sandwich", 237, 9.0),
-    createData("Eclair", 262, 16.0),
-    createData("Cupcake", 305, 3.7),
-    createData("Gingerbread", 356, 16.0),
+    createData("Sales", "1,194.58", "11,416.29"),
+    createData("Advertising", "6,879.24", "9,271.73"),
+    createData("Inventory", "4,629.40", "9,784.42"),
+    createData("Entertainment", "0.00", "0.00"),
+    createData("Product", "4,672.60", "2,567.89"),
   ];
   return (
     <div className="w-full bg-white rounded-lg">
