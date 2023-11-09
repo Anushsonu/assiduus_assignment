@@ -9,14 +9,14 @@ const LineChartContainer = () => {
   const [selectInput, setSelectInput] = useState("");
   const [chartData, setChartData] = useState(getRandomData(9));
   useEffect(() => {
-    const w = 680;
-    const h = 250;
+    const w = 670;
+    const h = 200;
     const svg = d3
       .select(svgRef.current)
       .attr("width", w)
       .attr("height", h)
       .style("background", "#ffffff")
-      .style("width", "100%")
+      // .style("width", "")
       .style("overflow", "visible");
 
     // setting the scaling
@@ -71,7 +71,7 @@ const LineChartContainer = () => {
   }, [chartData]);
 
   return (
-    <div className="w-full bg-white rounded-lg">
+    <div className="w-full bg-white rounded-lg h-[360px]">
       <div className="flex justify-between items-center px-5 py-4 border-gray-200 border-b-[1px]">
         <div className="text-xl font-semibold">Checking Account</div>
         <div className="flex gap-5">

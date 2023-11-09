@@ -6,17 +6,17 @@ import TotalCashFlow from "./TotalCashFlow";
 
 const MainContainer = () => {
   return (
-    <div className="bg-gray-100 w-full h-full grid grid-cols-2">
-      <div className="flex items-center justify-center mx-10">
+    <div className="bg-gray-100 w-full h-full grid grid-cols-2 gap-5 p-10">
+      <div className="flex">
         <LineChartContainer />
       </div>
-      <div className="flex items-center justify-center mx-10">
+      <div className="flex">
         <BarChartContainer />
       </div>
-      <div className="flex items-center justify-center mx-10">
+      <div className="flex">
         <TotalCashFlow />
       </div>
-      <div className="flex items-center justify-center mx-10">
+      <div className="flex">
         <AccountsWatchlist />
       </div>
     </div>

@@ -25,9 +25,9 @@ const BarChartContainer = () => {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const margin = { top: 20, right: 10, bottom: 30, left: 0 };
+    const margin = { top: 20, right: 30, bottom: 30, left: 0 };
     const width = 720 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const height = 250 - margin.top - margin.bottom;
 
     const x = d3.scaleBand().domain(categories).range([0, width]).padding(0.1);
 
@@ -52,6 +52,7 @@ const BarChartContainer = () => {
       .attr("width", 16) // Set the width to 1rem (16px)
       .attr("height", (d) => height - y(d))
       .style("fill", color);
+    g.selectAll(".bar").exit().remove();
 
     // Create x-axis
     g.append("g")
@@ -71,7 +72,7 @@ const BarChartContainer = () => {
       .style("text-anchor", "middle");
   }, [data]);
   return (
-    <div className="w-full bg-white rounded-lg">
+    <div className="w-full bg-white rounded-lg h-[360px]">
       <div className="flex justify-between items-center px-5 py-4 border-gray-200 border-b-[1px]">
         <div className="text-xl font-semibold">Checking Account</div>
         <div className="flex gap-5">
@@ -94,7 +95,7 @@ const BarChartContainer = () => {
         className="flex justify-center items-center"
       >
         <div className="bg-white p-10 rounded-lg w-[500px] h-2/6">
-          Drag and drop a file or{" "}
+          Drag and drop a file or
           <span className="text-blue-500 cursor-pointer hover:text-blue-700">
             Upload
           </span>{" "}

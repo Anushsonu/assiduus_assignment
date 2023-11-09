@@ -15,7 +15,7 @@ const TotalCashFlow = () => {
     { category: "October", v1: 20, v2: 40 },
     { category: "November", v1: 50, v2: 70 },
     { category: "December", v1: 50, v2: 70 },
-    { category: "January", v1: 80, v2: 70 },
+    { category: "January", v1: 40, v2: 70 },
   ];
   const svgRef = useRef();
 
@@ -25,7 +25,7 @@ const TotalCashFlow = () => {
     const colorV1 = "#55bc55"; // Color for v2
 
     const svg = d3.select(svgRef.current);
-    const margin = { top: 20, right: 10, bottom: 30, left: 0 };
+    const margin = { top: 20, right: 50, bottom: 30, left: 0 };
     const width = 720 - margin.left - margin.right;
     const height = 300 - margin.top - margin.bottom;
 
@@ -93,7 +93,7 @@ const TotalCashFlow = () => {
   return (
     <div className="w-full bg-white rounded-lg">
       <div className="flex justify-between items-center px-5 py-4 border-gray-200 border-b-[1px]">
-        <div className="text-xl font-semibold">Checking Account</div>
+        <div className="text-xl font-semibold">Total cash flow</div>
         <div className="flex gap-8">
           <div className="flex items-center gap-2">
             <div className="bg-[#29AB87] w-7 h-7 rounded-lg"> </div>
