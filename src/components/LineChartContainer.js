@@ -81,13 +81,21 @@ const LineChartContainer = () => {
               className="w-[150px]"
               labelId="demo-simple-select-label"
               value={selectInput}
-              onChange={(e) => {
-                setSelectInput(e?.target?.value);
-                setChartData(getRandomData(9));
-                // getRandomData(e?.target?.value);
-              }}
+              // onChange={(e) => {
+              //   setSelectInput(e?.target?.value);
+              //   setChartData(getRandomData(9));
+              //   // getRandomData(e?.target?.value);
+              // }}
             >
-              <MenuItem value={"Manage"}>Manage</MenuItem>
+              <MenuItem
+                value={"Manage"}
+                onClick={() => {
+                  setSelectInput("Manage");
+                  setChartData(getRandomData(9));
+                }}
+              >
+                Manage
+              </MenuItem>
               {/* <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem> */}
             </Select>
